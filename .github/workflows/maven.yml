@@ -28,7 +28,7 @@ jobs:
       with:
           tag_name: latest
           path_dockerfile: src/main/docker/Dockerfile.jvm
-          image_name: academy2
+          image_name: academia
     - name: Push Docker
       uses: Talesb/quarkus-hello/.github/actions/docker_push@main
       with:
