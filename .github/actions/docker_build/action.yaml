@@ -26,7 +26,7 @@ runs:
       shell: bash
 
     - name: Set up Docker Image name in environment
-      run: echo "DOCKER_IMAGE_NAME=${{ secrets.GITHUB_USERNAME}}/${{inputs.image_name}}:${{ env.TAG }}" >> $GITHUB_ENV
+      run: echo "DOCKER_IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME}}/${{inputs.image_name}}:${{ env.TAG }}" >> $GITHUB_ENV
       shell: bash
 
     - name: Create Docker Image
