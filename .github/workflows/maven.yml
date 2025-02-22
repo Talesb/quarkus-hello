@@ -22,9 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build Maven
-      uses: Talesb/quarkus-hello/tree/main/.github/actions/maven_build@main
+      uses: Talesb/quarkus-hello/.github/actions/maven_build@main
     - name: Build Docker
-      uses: Talesb/quarkus-hello/tree/main/.github/actions/docker_build@main
+      uses: Talesb/quarkus-hello/.github/actions/docker_build@main
       with:
           tag: latest
 
