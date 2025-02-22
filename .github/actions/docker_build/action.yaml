@@ -18,10 +18,10 @@ runs:
   steps:
     - name: Define Docker Tag
       run: |
-          if [ -z "${{ inputs.tag }}" ]; then
+          if [ -z "${{ inputs.tag_name }}" ]; then
             echo "TAG=$(date +%s)" >> $GITHUB_ENV
           else
-            echo "TAG=${{ inputs.tag }}" >> $GITHUB_ENV
+            echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
           fi
       shell: bash
 
