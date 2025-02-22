@@ -36,5 +36,5 @@ runs:
         password: ${{ inputs.DOCKERHUB_TOKEN }}
 
     - name: Push Docker Image
-      run: docker push ${{ inputs.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}
+      run: docker push ${{ env.DOCKER_IMAGE_NAME }}
       shell: bash
