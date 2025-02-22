@@ -26,7 +26,6 @@ jobs:
     - name: Build Docker
       uses: Talesb/quarkus-hello/.github/actions/docker_build@main
       with:
-          tag_name: latest
           path_dockerfile: src/main/docker/Dockerfile.jvm
           image_name: academy2
 
