@@ -11,5 +11,7 @@ runs:
   steps:
     - name: Create Docker Image
       run: docker build . --file src/main/docker/Dockerfile.jvm  ${{ inputs.tag }}
+      shell: bash
     - name: List Docker Images
       run: docker image list
+      shell: bash
