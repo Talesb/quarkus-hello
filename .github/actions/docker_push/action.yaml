@@ -17,6 +17,10 @@ runs:
       with:
         username: ${{ inputs.DOCKERHUB_USERNAME }}
         password: ${{ inputs.DOCKERHUB_TOKEN }}
+
+    - name: List Docker Images
+      run: docker image list
+      shell: bash
     - name: Push Docker Image
       run: docker push ${{ inputs.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}
       shell: bash
