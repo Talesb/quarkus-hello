@@ -29,4 +29,9 @@ jobs:
           tag_name: latest
           path_dockerfile: src/main/docker/Dockerfile.jvm
           image_name: academy2
+    - name: Push Docker
+      uses: Talesb/quarkus-hello/.github/actions/docker_push@main
+      with:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
