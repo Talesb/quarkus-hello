@@ -2,15 +2,31 @@ name: Docker Build
 description: 'Build a Docker image for the Quarkus application'
 
 inputs:
-  tag:
+  path_dockerfile:
     description: 'The tag for the Docker image'
     required: true
-    default: 'latest'
+    default: 'Dockerfile'
+  image_name:
+    description: 'The name for the Docker image'
+    required: true
+    default: 'academy'
+  tag_name:
+    description: 'The tag for the Docker image'
+
 runs:
   using: composite
   steps:
+    - name: Define Docker Tag
+      run: |
+          if [ -z "${{ inputs.tag }}" ]; then
+            echo "TAG=$(date +%s)" >> $GITHUB_ENV
+          else
+            echo "TAG=${{ inputs.tag }}" >> $GITHUB_ENV
+          fi
+      shell: bash
+
     - name: Create Docker Image
-      run: docker build . --file src/main/docker/Dockerfile.jvm  --tag academy:${{ inputs.tag }}
+      run: docker build . --file ${{inputs.path_dockerfile}}  --tag  ${{inputs.image_name}}:${{ env.TAG }}
       shell: bash
     - name: List Docker Images
       run: docker image list
